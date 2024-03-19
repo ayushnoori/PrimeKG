@@ -175,6 +175,9 @@ cd processing_scripts
 python uberon.py
 cd ..
 
+# In the future, could explore whether human view is more appropriate:
+# curl -L http://purl.obolibrary.org/obo/uberon/subsets/human-view.obo -o data/uberon/human-view.obo
+
 # Database: UMLS, Script: umls.py, map_umls_mondo.py, Output: umls_mondo.csv
 # The UMLS Metathesaurus will need to be downloaded manually after authentication at uts.nlm.nih.gov.
 # Here, we assume that the files have been placed at /n/data1/hms/dbmi/zitnik/lab/users/yeh803/PLM/raw_data/umls.

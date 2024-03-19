@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 
 pth = "../data/uberon/ext.obo"
+# pth = "../data/uberon/human-view.obo"
 with open(pth, 'r') as f: 
     data = f.read()
 data = data.split('[Term]\n')[1:-1]

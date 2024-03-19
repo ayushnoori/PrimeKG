@@ -149,6 +149,8 @@ class OBOReader(object):
                 ref = 'NCIT:'+line.split(':')[-1]
             elif 'Orphanet' in line: 
                 ref = 'Orphanet:'+line.split(':')[-1]
+            elif 'ICD10CM' in line:
+                ref = 'ICD10CM:'+line.split('/')[-1]
             else:
                 print('closeMatch not added for:', line)
                 ref=None
@@ -163,6 +165,8 @@ class OBOReader(object):
             rec_curr.replaced_by = line[13+l:]
         elif self.optobj and ':' in line:
             self.optobj.update_rec(rec_curr, line)
+        else:
+            print(line)
         
 
     @staticmethod

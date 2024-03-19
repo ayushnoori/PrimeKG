@@ -24,12 +24,20 @@ mondo_parents = pd.DataFrame(mondo_parents).drop_duplicates()
 print("cross references from mondo to other ontologies")
 mondo_xrefs = []
 for x in data: 
+    # print(x.item_id)
     if x.xrefs:
+       # print(x.xrefs)
         for xref in x.xrefs: 
-            if xref is not None:
-                ont, name = xref.split(':')            
-                mondo_xrefs.append({'ontology_id':name, 'ontology':ont, 'mondo_id':x.item_id})            
+            # if xref is not None:
+            ont, name = xref.split(':')            
+            mondo_xrefs.append({'ontology_id':name, 'ontology':ont, 'mondo_id':x.item_id})     
+            # else:
+            #     print(x.item_id)
+            #     print(x.xrefs)       
+print("Before drop duplicates: ", len(mondo_xrefs))
 mondo_xrefs = pd.DataFrame(mondo_xrefs).drop_duplicates()
+print("After drop duplicates: ", mondo_xrefs.shape)
+print(mondo_xrefs.head())
 print('references to the following ontologies are available:')
 print(np.unique(mondo_xrefs.get('ontology').values))
 print('references from mondo to mondo indicate equivalence/synonyms')
